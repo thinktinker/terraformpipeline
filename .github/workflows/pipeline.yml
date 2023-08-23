@@ -1,13 +1,13 @@
 name: Terraform Deployment
 
 on:
-  push:
+ push:
     branches:
       - main
 
 
 jobs:
-  terraform:
+ terraform:
     runs-on: ubuntu-latest
     
   steps:
