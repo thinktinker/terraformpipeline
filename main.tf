@@ -20,6 +20,20 @@ resource "aws_instance" "MartinTfWebServer" {
   vpc_security_group_ids      = [aws_security_group.martin_allow_ssh_icmp_https_traffic.id] # Points to the security group below
   associate_public_ip_address = true
 
+  tags = {
+    Name = "Martin TF Web Server ${count.index + 1}"
+  }
+}
+
+# Configure ANOTHER AWS Instance for Ansible
+resource "aws_instance" "MartinAnsibleServer" {
+  ami                         = "ami-0f34c5ae932e6f0e4" # Amazon Linux 2 LTS
+  instance_type               = "t2.micro"
+  key_name                    = aws_key_pair.martinterraformkeypair.key_name                # for SSH connection with a new keypair created below
+  subnet_id                   = "subnet-012fda4fc806b7308"                                  # points to the subnet from the used VPC                                       
+  vpc_security_group_ids      = [aws_security_group.martin_allow_ssh_icmp_https_traffic.id] # Points to the security group below
+  associate_public_ip_address = true
+
   user_data = <<-EOF
       #!/bin/bash
       sudo yum update -y
@@ -28,7 +42,7 @@ resource "aws_instance" "MartinTfWebServer" {
     EOF
 
   tags = {
-    Name = "Martin TF Web Server ${count.index + 1}"
+    Name = "Martin Ansible Server"
   }
 }
 
