@@ -25,7 +25,7 @@ resource "aws_instance" "MartinTfWebServer" {
   }
 }
 
-# Configure ANOTHER AWS Instance for Ansible
+# Configure ANOTHER AWS Instance and install Ansible
 resource "aws_instance" "MartinAnsibleServer" {
   ami                         = "ami-0f34c5ae932e6f0e4" # Amazon Linux 2 LTS
   instance_type               = "t2.micro"
