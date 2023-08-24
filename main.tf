@@ -36,9 +36,9 @@ resource "aws_instance" "MartinAnsibleServer" {
 
   user_data = <<EOF
       #!/bin/bash
-      sudo yum update -y
-      sudo yum install pip -y
-      sudo python3 -m pip install --user ansible
+      yum update -y
+      yum install pip -y
+      python3 -m pip install --user ansible
   EOF
 
   tags = {
