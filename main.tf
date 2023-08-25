@@ -37,8 +37,8 @@ resource "aws_instance" "MartinAnsibleServer" {
   #!/bin/bash
   echo "*** install ansible"
   sudo yum update -y
-  sudo yum install pip -y
-  python3 -m pip install --user ansible
+  sudo yum install python3-pip
+  pip3 install ansible
   echo "*** completed ansible installation"
   EOF
 
