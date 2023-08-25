@@ -35,10 +35,8 @@ resource "aws_instance" "MartinAnsibleServer" {
   associate_public_ip_address = true
   user_data                   = <<EOF
   #!/bin/bash
-  dnf update -y
-  dnf install python3.11
-  dnf install python3.11-pip
-  pip install ansible
+  yum update -y
+  amazon-linux-extras install ansible2 -y
   EOF
 
   tags = {
