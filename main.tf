@@ -33,15 +33,7 @@ resource "aws_instance" "MartinAnsibleServer" {
   subnet_id                   = "subnet-012fda4fc806b7308"                                  # points to the subnet from the used VPC                                       
   vpc_security_group_ids      = [aws_security_group.martin_allow_ssh_icmp_https_traffic.id] # Points to the security group below
   associate_public_ip_address = true
-
-  user_data = <<EOF
-      #!/bin/bash
-
-      sudo su
-      sudo yum update -y
-      sudo yum install pip -y
-      sudo python3 -m pip install --user ansible
-  EOF
+  user_data                   = file("create_ansible.sh")                                                     #define the script to execute on the instance
 
   tags = {
     Name = "Martin Ansible Server"
