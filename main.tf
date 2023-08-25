@@ -33,13 +33,11 @@ resource "aws_instance" "MartinAnsibleServer" {
   subnet_id                   = "subnet-012fda4fc806b7308"                                  # points to the subnet from the used VPC                                       
   vpc_security_group_ids      = [aws_security_group.martin_allow_ssh_icmp_https_traffic.id] # Points to the security group below
   associate_public_ip_address = true
-  user_data                   = <<-EOF
+  user_data                   = <<EOF
   #!/bin/bash
-  echo "*** install ansible"
   sudo yum update -y
   sudo yum install python3-pip
   pip3 install ansible
-  echo "*** completed ansible installation"
   EOF
 
   tags = {
