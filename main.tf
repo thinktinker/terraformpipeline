@@ -40,9 +40,9 @@ resource "aws_instance" "MartinAnsibleServer" {
   # In this example, installation is done without sudo to test where ansible shall be installed
   user_data                   = <<EOF
 #!/bin/bash
-yum update -y
-yum install pip -y
-python3 -m pip install ansible
+sudo yum update -y
+sudo yum install pip -y
+sudo python3 -m pip install --user ansible
 EOF
 
   tags = {
