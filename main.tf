@@ -34,13 +34,8 @@ resource "aws_instance" "MartinAnsibleServer" {
   vpc_security_group_ids      = [aws_security_group.martin_allow_ssh_icmp_https_traffic.id] # Points to the security group below
   associate_public_ip_address = true
 
-<<<<<<< HEAD
-  # Note that the bash script does not allow indentations
-  # Ansible is installed in the root user; switch to root user via sudo su 
-=======
   # Note that the bash script does not allow spaces
   # Ansible is accessed in the root user; switch to root user via sudo su 
->>>>>>> 3-custom-tf-state-adopted
   # and type ansible --version to check that ansible is installed
   # In this example, installation is done without sudo to test where ansible shall be installed
   user_data                   = <<EOF
