@@ -34,13 +34,11 @@ resource "aws_instance" "MartinAnsibleServer" {
   vpc_security_group_ids      = [aws_security_group.martin_allow_ssh_icmp_https_traffic.id] # Points to the security group below
   associate_public_ip_address = true
   user_data                   = <<EOF
-                                #!/bin/bash
-                                yum update -y
-                                yum install python3
-                                curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-                                python3 get-pip.py --user
-                                python3 -m pip install --user ansible
-                                EOF
+#!/bin/bash
+sudo yum update -y
+sudo yum install pip -y
+sudo python3 -m pip install --user ansible
+EOF
 
   tags = {
     Name = "Martin Ansible Server"
