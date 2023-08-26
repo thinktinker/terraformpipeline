@@ -33,6 +33,10 @@ resource "aws_instance" "MartinAnsibleServer" {
   subnet_id                   = "subnet-012fda4fc806b7308"                                  # points to the subnet from the used VPC                                       
   vpc_security_group_ids      = [aws_security_group.martin_allow_ssh_icmp_https_traffic.id] # Points to the security group below
   associate_public_ip_address = true
+
+  # Note that the bash script does not allow spaces
+  # Ansible is installed in the root user; switch to root user via sudo su 
+  # and type ansible --version to check that ansible is installed
   user_data                   = <<EOF
 #!/bin/bash
 sudo yum update -y
