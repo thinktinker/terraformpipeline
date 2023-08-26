@@ -42,7 +42,7 @@ resource "aws_instance" "MartinAnsibleServer" {
 #!/bin/bash
 yum update -y
 yum install pip -y
-python3 -m pip install --user ansible
+python3 -m pip install ansible
 EOF
 
   tags = {
