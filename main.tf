@@ -37,7 +37,6 @@ resource "aws_instance" "MartinAnsibleServer" {
   # Note that the bash script does not allow spaces
   # Ansible is accessed in the root user; switch to root user via sudo su 
   # and type ansible --version to check that ansible is installed
-  # In this example, installation is done without sudo to test where ansible shall be installed
   user_data                   = <<EOF
 #!/bin/bash
 sudo yum update -y
