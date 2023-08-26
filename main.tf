@@ -37,9 +37,9 @@ resource "aws_instance" "MartinAnsibleServer" {
                                 #!/bin/bash
                                 yum update -y
                                 yum install python3
-                                wget https://bootstrap.pypa.io/get-pip.py
-                                python3 get-pip.py
-                                python3 -m pip install ansible
+                                curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+                                python3 get-pip.py --user
+                                python3 -m pip install --user ansible
                                 EOF
 
   tags = {
