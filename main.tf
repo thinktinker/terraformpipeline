@@ -35,7 +35,7 @@ resource "aws_instance" "MartinAnsibleServer" {
   associate_public_ip_address = true
 
   # Note that the bash script does not allow spaces
-  # Ansible is installed in the root user; switch to root user via sudo su 
+  # Ansible is accessed in the root user; switch to root user via sudo su 
   # and type ansible --version to check that ansible is installed
   user_data                   = <<EOF
 #!/bin/bash
