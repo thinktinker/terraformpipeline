@@ -49,7 +49,7 @@ EOF
 terraform {
   backend "s3" {
     bucket = "martins3terraform" # this bucket has to be created first
-    key    = "s3terraformkey"    # this is where the terraform state is written to
+    key    = "s3terraformkey.tfstate"    # this is where the terraform state is written to
     region = "us-east-1"
   }
 }
