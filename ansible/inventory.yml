@@ -1,9 +1,10 @@
-[webservers]
-54.226.197.18
-54.144.74.31
+webservers:
+ hosts:
+  54.226.197.18
+  54.144.74.31
 
-[pri-webserver]
-54.226.197.18
+pri-webserver:
+  54.226.197.18
 
-[sec-webserver]
-54.144.74.31
+sec-webserver:
+ 54.144.74.31
